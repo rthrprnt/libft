@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apernot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 14:10:10 by apernot           #+#    #+#             */
-/*   Updated: 2024/05/17 14:26:33 by apernot          ###   ########.fr       */
+/*   Created: 2024/05/17 14:27:43 by apernot           #+#    #+#             */
+/*   Updated: 2024/05/17 15:10:38 by apernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+char *ft_strchr(const char *s, int c)
 {
-	char	cr;
+	size_t	i;
 
-	cr = (char)c;
-	if (cr >= 'A' && cr <= 'Z')
-		return (c + 32);
-	else
-		return (c);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if (c == 0)
+		return ((char *)&s[i]); 
+	return (NULL);
 }
 /*
 #include <stdio.h>
-#include <ctype.h>
 int	main(void)
 {
-	printf("%d\n", ft_tolower(28)); 
-	printf("%d\n", ft_tolower(50)); 
-	printf("%d\n", toupper(28)); 
-	printf("%d\n", toupper(50)); 
+	char *ptr;
+	const char s[5] = "abcd";
+	
+	ptr = ft_strchr(s, 0);
+
+//	printf("%p\n", ft_strchr(s, 99));
+	printf("%p\n", ptr);
+	printf("%c\n", ptr[0]);
+
+
 }*/

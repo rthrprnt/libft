@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apernot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 14:10:10 by apernot           #+#    #+#             */
-/*   Updated: 2024/05/17 14:26:33 by apernot          ###   ########.fr       */
+/*   Created: 2024/05/17 15:48:17 by apernot           #+#    #+#             */
+/*   Updated: 2024/05/17 16:01:52 by apernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	cr;
+	size_t	i;
 
-	cr = (char)c;
-	if (cr >= 'A' && cr <= 'Z')
-		return (c + 32);
-	else
-		return (c);
+	i = 0;
+	while (s1[i] && s2[i] && (s1[i] == s2[i]) && i < n)
+		i++;
+	return (s1[i] - s2[i]);
 }
 /*
 #include <stdio.h>
-#include <ctype.h>
-int	main(void)
+int	main(int ac, char** av)
 {
-	printf("%d\n", ft_tolower(28)); 
-	printf("%d\n", ft_tolower(50)); 
-	printf("%d\n", toupper(28)); 
-	printf("%d\n", toupper(50)); 
+	printf("%d\n", ft_strncmp(av[1], av[2],(size_t)atoi(av[3])));
 }*/
